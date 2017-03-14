@@ -10,7 +10,7 @@ DBEcho = False
 # web client echo
 WEBEcho = False
 # web client host
-WEBHost = "0.0.0.0"
+WEBHost = "localhost"
 # web client port
 WEBPort = "5000"
 # Max fies for user
