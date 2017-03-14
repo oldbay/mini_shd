@@ -1,0 +1,21 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {% if regmenu %}
+            {{ render_field(form.genlogin, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {% endif %}
+        {{ render_field(form.passwd, label=True, type="password", class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.passwd_verifi, label=True, type="password", class="input-xlarge", autofocus="autofocus") }}
+        {% if regmenu %}
+            {{ render_field(form.button, type="button", type="submit", label=False, value="Регистрация", class="accept") }}
+        {% endif %}
+        {% if not regmenu %}
+            {{ render_field(form.button, type="button", type="submit", label=False, value="Сменить пароль", class="accept") }}
+            {{ render_field(form.rbutton, type="button", type="submit", label=False, value="Удалить пользователя", class="accept") }}
+        {% endif %}
+    </form>
+{% endblock %}

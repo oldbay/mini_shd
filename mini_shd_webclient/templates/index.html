@@ -1,0 +1,12 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.login, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.passwd, type="password", label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.button, type="button", type="submit", label=False, value="OK", class="accept") }}
+    </form>
+{% endblock %}

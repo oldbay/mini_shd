@@ -1,0 +1,30 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %}
+
+{% block content %}
+    {% if menu %}
+        <form method="post" enctype=multipart/form-data>
+            <table class="browser">
+                <thead>
+                    <tr>
+                        <th>Имя файла</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fileunit in fileslist.fileslist %}
+                        <tr>
+                            <td>{{ nav_link (fileunit.fname, 'myfiles') }}</td>
+                            <td>{{ render_field(fileunit.down, type="button", type="submit", label=False, value="Сохранить", class="accept") }}</td>
+                            <td>{{ render_field(fileunit.delit, type="button", type="submit", label=False, value="Удалить", class="accept") }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p><input type=file name=file>
+            <input type=submit value=Загрузить>
+        </form>
+    {% endif %}
+{% endblock %}
