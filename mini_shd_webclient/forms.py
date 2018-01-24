@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from flask_wtf import FlaskForm
+from flask_wtf import Form
 from wtforms import (
     TextField,
     PasswordField,
@@ -10,13 +10,13 @@ from wtforms import (
 )
 
 
-class AuthForm(FlaskForm):
+class AuthForm(Form):
     login = TextField(u'Логин')
     passwd = PasswordField(u'Пароль')
     button = BooleanField(False)
 
 
-class RegForm(FlaskForm):
+class RegForm(Form):
     genlogin = TextField(u'Задайте логин')
     passwd = PasswordField(u'Задайте пароль')
     passwd_verifi = PasswordField(u'Повторите пароль')
@@ -24,16 +24,16 @@ class RegForm(FlaskForm):
     rbutton = BooleanField(False)
 
 
-class RepassForm(FlaskForm):
+class RepassForm(Form):
     passwd = PasswordField(u'Измените пароль')
     button = BooleanField(False)
 
 
-class MyfilesForm(FlaskForm):
+class MyfilesForm(Form):
     fname = TextField(u'')
     down = BooleanField(False)
     delit = BooleanField(False)
 
 
-class MyfilesList(FlaskForm):
+class MyfilesList(Form):
     fileslist = FieldList(FormField(MyfilesForm))
